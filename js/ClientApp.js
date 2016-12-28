@@ -1,18 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import MyTitle from './MyTitle';
+import { render } from 'react-dom';
+import {HashRouter, Match} from 'react-router';
+import Landing from './Landing';
+import Search from './Search';
 
-class MyFirstComponent extends React.Component {
-
+import '../public/normalize.css';
+import '../public/style.css';
+class App extends React.Component {
   render () {
     return (
-      <div>
-        <MyTitle title='props are cool' color='rebeccapurple' />
-        <MyTitle title='I am working on it' color='blue' />
-        <MyTitle title='Starting to get hang of it' color='peru' />
-      </div>
+      <HashRouter>
+        <div className='app'>
+          <Match exactly pattern='/' component={Landing} />
+          <Match pattern='/search' component={Search} />
+        </div>
+      </HashRouter>
     );
   }
 }
 
-ReactDOM.render(React.createElement(MyFirstComponent), document.getElementById('app'));
+render(<App />, document.getElementById('app'));
