@@ -14,4 +14,7 @@ const ShowCard = (props) => {
   );
 };
 
+ShowCard.propTypes = {
+  show: React.PropTypes.object.isRequired
+};
 export default ShowCard;
