@@ -1,10 +1,17 @@
 import React from 'react';
+import preload from '../public/data.json';
+import ShowCard from './ShowCard';
 
-class Search extends React.Component {
-  render () {
-    return (
-      <h1>Search Page!!</h1>
-    );
-  }
-}
+const Search = () => {
+  return (
+    <div className='search'>
+      {preload.shows.map((show) => {
+        return (
+          <ShowCard show={show} key={show.imdbID} />
+        );
+      })
+      }
+    </div>
+  );
+};
 export default Search;
